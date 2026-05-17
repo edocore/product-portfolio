@@ -5,14 +5,18 @@ import SectionHeader from './SectionHeader'
 import { VIDI } from '../data/vidi'
 
 function Screenshot({ src, alt, sx }) {
-  const base = src.replace(/\.png$/, '')
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '')
+  const stem = src.replace(/^\//, '').replace(/\.png$/, '')
+  const png = `${baseUrl}/${stem}.png`
+  const webp = `${baseUrl}/${stem}.webp`
+  const avif = `${baseUrl}/${stem}.avif`
   return (
     <Box sx={sx}>
       <picture>
-        <source srcSet={`${base}.avif`} type="image/avif" />
-        <source srcSet={`${base}.webp`} type="image/webp" />
+        <source srcSet={avif} type="image/avif" />
+        <source srcSet={webp} type="image/webp" />
         <img
-          src={src}
+          src={png}
           alt={alt}
           loading="lazy"
           style={{ display: 'block', width: '100%', height: 'auto' }}

@@ -181,6 +181,23 @@ export default function Startup() {
               <Typography variant="h3" component="h3" sx={{ mb: 1.5 }}>
                 {u.headline}
               </Typography>
+              {u.badge && (
+                <Box
+                  sx={(t) => ({
+                    display: 'inline-block',
+                    mb: 2,
+                    px: 2,
+                    py: 0.75,
+                    borderRadius: 999,
+                    bgcolor: t.custom.primaryContainer,
+                    color: t.custom.onPrimaryContainer,
+                  })}
+                >
+                  <Typography variant="overline" component="span" sx={{ letterSpacing: '0.04em', color: 'inherit' }}>
+                    {u.badge}
+                  </Typography>
+                </Box>
+              )}
               <Typography variant="body2" sx={{ color: 'text.primary' }}>
                 {u.body}
               </Typography>

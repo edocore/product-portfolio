@@ -7,7 +7,7 @@ export const VIDI = {
   description:
     'A Flutter mobile app that helps newcomers find belonging through personalized, community-driven recommendations. Built on GenAI and Agentic AI to maximize the value of community content for each user.',
   launch: 'Official UK & QA launch in September 2026',
-  landingUrl: '',
+  landingUrl: 'https://vidiapp.co',
   appStoreUrl: 'https://apps.apple.com',
   playStoreUrl: 'https://play.google.com/store',
   appStoreBadge: 'https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg',
@@ -22,7 +22,7 @@ export const VIDI = {
       id: 'settle',
       label: 'Settle in through personalized recommendations',
       detail:
-        'Onboarding signals + a propensity-matching algorithm solve the cold-start problem from minute one — community-driven recs are tailored to each newcomer’s tastes, habits, and location.',
+        'Onboarding signals + a propensity-matching algorithm solve the cold-start problem from minute one: community-driven recs are tailored to each newcomer’s tastes, habits, and location.',
       caseStudyId: 'matching-algo',
     },
     {
@@ -35,14 +35,15 @@ export const VIDI = {
       id: 'events',
       label: 'Browse events directly tailored to you',
       detail:
-        'Affiliate partners post deals, discounts, and events on the platform — redeem them in person via QR code. In Qatar, Vidi works alongside ',
+        'Affiliate partners post deals, discounts, and events on the platform: redeem them in person via QR code. In Qatar, Vidi works alongside ',
       linkLabel: 'ILoveQatar',
       linkUrl: 'https://www.iloveqatar.net/',
     },
   ],
   universityLaunch: {
     headline: 'Launching with university support.',
-    body: 'Vidi was born at the London School of Economics and built for newcomers — especially university students. We are actively collaborating with:',
+    badge: 'Qatar Science and Technology Park (QSTP) Incubated',
+    body: 'Vidi was born at the London School of Economics and built for newcomers, especially university students. We are actively collaborating with:',
     partners: [
       'London School of Economics',
       'University of Doha for Science & Technology (UDST)',

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Accordion,
   AccordionDetails,
@@ -11,6 +12,9 @@ import SectionHeader from './SectionHeader'
 import { FAQS } from '../data/faqs'
 
 export default function Faqs() {
+  const [expanded, setExpanded] = useState(false)
+  const handleChange = (id) => (_e, isExpanded) => setExpanded(isExpanded ? id : false)
+
   return (
     <Section id="questions">
       <SectionHeader
@@ -21,7 +25,7 @@ export default function Faqs() {
 
       <Box>
         {FAQS.map((f) => (
-          <Accordion key={f.id}>
+          <Accordion key={f.id} expanded={expanded === f.id} onChange={handleChange(f.id)}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography sx={{ fontWeight: 500, fontSize: { xs: 16, md: 17 } }}>
                 {f.q}

@@ -8,8 +8,8 @@ export default function Projects() {
     <Section id="work">
       <SectionHeader
         eyebrow="Selected work"
-        title="Four products. Four problems worth solving."
-        kicker="Each one started as a prototype. Each one shipped to real users. The metrics below are the outcomes — the stories behind them are the part I care about."
+        title="Products that deliver real impact and are worth solving for."
+        kicker="Each one started as a prototype. Each one shipped to real users. The metrics below are the outcomes: the stories behind them are the part I care about."
       />
 
       <Stack spacing={{ xs: 3, md: 4 }}>
@@ -39,6 +39,23 @@ export default function Projects() {
                   {cs.impactLabel}
                 </Typography>
                 <Typography variant="body2">{cs.impactDetail}</Typography>
+
+                {cs.image && (
+                  <Box
+                    component="img"
+                    src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${cs.image.src}`}
+                    alt={cs.image.alt}
+                    loading="lazy"
+                    sx={{
+                      mt: 2.5,
+                      display: 'block',
+                      width: '100%',
+                      maxHeight: { xs: 200, md: 220 },
+                      objectFit: 'cover',
+                      borderRadius: '16px',
+                    }}
+                  />
+                )}
               </Box>
 
               <Box sx={{ flex: 1 }}>

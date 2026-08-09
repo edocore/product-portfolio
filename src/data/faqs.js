@@ -13,7 +13,7 @@ export const FAQS = [
     id: 'metrics',
     tag: 'Metrics',
     q: 'What metrics do you obsess over?',
-    a: 'Retention (D1/D7/D30), activation rate, NPS, time-to-value, and LTV/CAC ratio. The right metric depends on the product stage — early stage I focus on retention, growth stage on activation funnels.',
+    a: 'Retention (D1/D7/D30), activation rate, NPS, time-to-value, and LTV/CAC ratio. The right metric depends on the product stage: early stage I focus on retention, growth stage on activation funnels.',
   },
   {
     id: 'prioritize',

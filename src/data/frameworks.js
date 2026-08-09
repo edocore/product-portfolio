@@ -1,7 +1,7 @@
 export const FRAMEWORKS = [
   {
-    name: 'AI & Vibe Coding',
-    items: ['Kiro CLI & Kiro IDE', 'Claude Code', 'Gemini CLI', 'MCP Integrations'],
+    name: 'AI and Prototyping',
+    items: ['Claude', 'Gemini', 'MCPs', 'Skills', 'Agent Orchestration', 'Context Window', 'Evals'],
   },
   {
     name: 'Discovery & Research',

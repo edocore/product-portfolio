@@ -13,7 +13,7 @@ export const PROFILE = {
     'I build products by starting from customer problems, prototyping fast, and iterating based on real customer feedback. I live in the space between business and technical.',
   // Single hero metric — story-style anchor for a 0→1 founder/PM
   anchorMetric: '0 → 1 Mindset',
-  anchorMetricLabel: '3 products taken from idea to launch as PM and founder in 1 year',
+  anchorMetricLabel: '3 high-scale products taken from idea to launch as PM and founder in <1 year',
   // Sections in display order — drives the navbar
   sections: [
     { id: 'work', label: 'Work' },

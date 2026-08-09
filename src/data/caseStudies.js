@@ -11,10 +11,11 @@ export const CASE_STUDIES = [
     impact: '+10k',
     impactLabel: 'unique users after a week of launch',
     impactDetail: 'Available in the US and EU upon invitation',
+    image: { src: '/case-delivery.jpg', alt: 'Amazon Seller Assistant delivery chat experience' },
     problem:
       'Amazon Sellers lacked a unified way to monitor and optimize their delivery performance, relying on fragmented tools with no actionable guidance on how to speed up customer deliveries.',
     solution:
-      'Launched a one-stop AI/ML platform that suggests tailored settings recommendations (e.g. switch carrier for a specific city) with predicted impacts, a performance dashboard, and a "what-if" simulation API that lets Sellers preview delivery date changes before committing. Hosted on AWS with Cloudscape design.',
+      'Launched an internal AI/ML solution hosted on AWS/Cloudscape with 150 DAUs and scaled through Amazon Seller Assistant integration on Seller Central Website, enabling "what-if" simulations and recommendations to help Sellers deliver faster on Amazon.',
     tags: ['AI/ML', 'AWS', 'Cloudscape', 'Simulation'],
   },
   {
@@ -25,10 +26,11 @@ export const CASE_STUDIES = [
     impact: '+250',
     impactLabel: 'monthly active users on internal chatbot',
     impactDetail: '10+ topics scaling · 90% ticket resolution rate',
+    image: { src: '/case-chatbot.png', alt: 'Amazon Quick Suite architecture the chatbot was built on' },
     problem:
-      'Business teams handling Seller issue tickets (e.g. tracking ID mismatches) spent approximately 7 days per year clearing their backlog. Resolution was manual — searching internal resources and escalating to Partner teams.',
+      'Business teams handling Seller issue tickets (e.g. tracking ID mismatches) spent approximately 7 days per year clearing their backlog. Resolution was manual: searching internal resources and escalating to Partner teams.',
     solution:
-      'Built an AI chatbot on AWS QuickSuite that replicates RAG/MCP metadata across topics — enabling seamless topic scaling while reducing hallucinations and load-time performance. Integrated with internal dashboards for inline resolution.',
+      'Built an AI chatbot on AWS QuickSuite that replicates RAG/MCP metadata across topics: enabling seamless topic scaling while reducing hallucinations and load-time performance. Built ad-hoc MCP to retrieve all internal knowledge and onboarded onto QuickSuite. Integrated with internal dashboards for inline resolution.',
     tags: ['GenAI', 'Automation', 'AWS', 'Internal Tools'],
   },
   {
@@ -39,8 +41,9 @@ export const CASE_STUDIES = [
     impact: '−80%',
     impactLabel: 'bounce rate in the first 15 minutes',
     impactDetail: 'Solved cold-start for new users from day one',
+    image: { src: '/case-matching.png', alt: 'Vidi onboarding and personalized home recommendations' },
     problem:
-      'New users faced a cold-start problem — insufficient behavioral data to recommend relevant content from users who share similar traits, leading to high early bounce rates.',
+      'New users faced a cold-start problem: insufficient behavioral data to recommend relevant content from users who share similar traits, leading to high early bounce rates.',
     solution:
       'Built a propensity-score matching algorithm combined with collaborative filtering (clicks, views, shares, likes) and location signals. Designed an onboarding questionnaire capturing tastes, habits, and personal traits to bootstrap recommendations for Home content and user discovery.',
     tags: ['AI/ML', 'Cold Start', 'Recommendation', '0→1'],
@@ -53,8 +56,9 @@ export const CASE_STUDIES = [
     impact: '+110%',
     impactLabel: 'time spent on search screens',
     impactDetail: 'Sub-500ms latency across millions of records',
+    image: { src: '/case-search.png', alt: 'Vidi low-latency place and user search results' },
     problem:
-      'Searching across millions of POIs, users, and curated lists required sub-500ms latency while delivering highly relevant, location-aware results — a challenge for a resource-constrained startup.',
+      'Searching across millions of POIs, users, and curated lists required sub-500ms latency while delivering highly relevant, location-aware results: a challenge for a resource-constrained startup.',
     solution:
       'Designed a three-layer search system: first filtering by user matching algorithm score, then fuzzy matching on text, then location ranking with a dynamically expanding radius as the user scrolls.',
     tags: ['Search', 'Performance', 'Fuzzy Matching', '0→1'],

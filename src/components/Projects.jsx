@@ -46,14 +46,16 @@ export default function Projects() {
                     src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${cs.image.src}`}
                     alt={cs.image.alt}
                     loading="lazy"
-                    sx={{
+                    sx={(t) => ({
                       mt: 2.5,
                       display: 'block',
                       width: '100%',
-                      maxHeight: { xs: 200, md: 220 },
-                      objectFit: 'cover',
+                      maxHeight: { xs: 220, md: 240 },
+                      objectFit: 'contain',
+                      objectPosition: 'center',
                       borderRadius: '16px',
-                    }}
+                      bgcolor: t.custom.surfaceContainerHigh,
+                    })}
                   />
                 )}
               </Box>

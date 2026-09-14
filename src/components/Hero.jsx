@@ -10,6 +10,87 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { PROFILE } from '../data/profile'
 import { scrollToId } from '../utils/scroll'
 
+const MONO = '"SF Mono", "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace'
+
+// Renders a JS-object literal as a syntax-highlighted "artifact metadata" card,
+// echoing the JSON envelope this portfolio is stored under as a shared artifact.
+function JsonValue({ value }) {
+  if (typeof value === 'number') {
+    return <Box component="span" sx={{ color: 'primary.main' }}>{value}</Box>
+  }
+  if (Array.isArray(value)) {
+    return (
+      <>
+        [
+        {value.map((v, i) => (
+          <Box component="span" key={v}>
+            <Box component="span" sx={{ color: 'success.main' }}>"{v}"</Box>
+            {i < value.length - 1 ? ', ' : ''}
+          </Box>
+        ))}
+        ]
+      </>
+    )
+  }
+  return <Box component="span" sx={{ color: 'success.main' }}>"{value}"</Box>
+}
+
+function ArtifactCard({ artifact }) {
+  const entries = Object.entries(artifact)
+  return (
+    <Box
+      sx={(t) => ({
+        borderRadius: '20px',
+        overflow: 'hidden',
+        border: `1px solid ${t.custom.outlineVariant}`,
+        bgcolor: (th) => (th.palette.mode === 'light' ? '#0E1116' : '#0A0B0D'),
+        boxShadow: '0 24px 60px rgba(8, 66, 160, 0.14)',
+      })}
+    >
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={1.5}
+        sx={{ px: 2, py: 1.5, borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+      >
+        <Stack direction="row" spacing={0.75}>
+          {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => (
+            <Box key={c} sx={{ width: 11, height: 11, borderRadius: '50%', bgcolor: c }} />
+          ))}
+        </Stack>
+        <Typography sx={{ fontFamily: MONO, fontSize: 12, color: 'rgba(255,255,255,0.55)' }}>
+          GET&nbsp;/artifact/portfolio.json
+        </Typography>
+      </Stack>
+      <Box
+        component="pre"
+        sx={{
+          m: 0,
+          px: { xs: 2.5, md: 3 },
+          py: { xs: 2.5, md: 3 },
+          fontFamily: MONO,
+          fontSize: { xs: 12.5, md: 13 },
+          lineHeight: 1.7,
+          color: 'rgba(255,255,255,0.82)',
+          whiteSpace: 'pre-wrap',
+          wordBreak: 'break-word',
+        }}
+      >
+        <Box component="span" sx={{ color: 'rgba(255,255,255,0.4)' }}>{'{'}</Box>
+        {entries.map(([k, v], i) => (
+          <Box component="div" key={k} sx={{ pl: 2 }}>
+            <Box component="span" sx={{ color: '#8AB4F8' }}>"{k}"</Box>
+            <Box component="span" sx={{ color: 'rgba(255,255,255,0.5)' }}>: </Box>
+            <JsonValue value={v} />
+            {i < entries.length - 1 ? ',' : ''}
+          </Box>
+        ))}
+        <Box component="span" sx={{ color: 'rgba(255,255,255,0.4)' }}>{'}'}</Box>
+      </Box>
+    </Box>
+  )
+}
+
 export default function Hero() {
   return (
     <Box
@@ -24,106 +105,48 @@ export default function Hero() {
     >
       <Container>
         <Fade in timeout={500}>
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={{ xs: 5, md: 8 }}
-            alignItems={{ xs: 'flex-start', md: 'center' }}
-          >
-            <Box sx={{ flex: { md: '0 0 60%' }, width: '100%' }}>
-              <Box
-                sx={{
-                  mb: { xs: 3, md: 4 },
-                  px: 3.5,
-                  py: 1.5,
-                  borderRadius: 999,
-                  width: 'fit-content',
-                  maxWidth: '100%',
-                  bgcolor: (t) => t.custom.surfaceContainer,
-                }}
-              >
-                <Typography variant="overline" component="span" sx={{ letterSpacing: '0.04em' }}>
-                  {PROFILE.role}
-                </Typography>
-              </Box>
-
-              <Typography variant="h1" component="h1" sx={{ mb: 3 }}>
-                {PROFILE.povHeadline}{' '}
-                <Box
-                  component="span"
-                  sx={(t) => ({
-                    backgroundImage: t.custom.brandGradient,
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    color: 'transparent',
-                    fontWeight: 600,
-                  })}
-                >
-                  {PROFILE.povHeadlineEm}
-                </Box>
-              </Typography>
-
-              <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ mb: { xs: 4, md: 5 }, maxWidth: 600, fontSize: { xs: 17, md: 19 } }}
-              >
-                {PROFILE.povSubhead}
-              </Typography>
-
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  endIcon={<ArrowForwardIcon />}
-                  onClick={() => scrollToId('work')}
-                >
-                  See the work
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  onClick={() => scrollToId('contact')}
-                >
-                  Get in touch
-                </Button>
-              </Stack>
-            </Box>
-
+          <Box sx={{ maxWidth: 640, width: '100%' }}>
             <Box
               sx={{
-                flex: { md: '0 0 35%' },
-                width: '100%',
-                p: { xs: 3, md: 3.5 },
-                borderRadius: '24px',
+                mb: { xs: 3, md: 4 },
+                px: 3.5,
+                py: 1.5,
+                borderRadius: 999,
+                width: 'fit-content',
+                maxWidth: '100%',
                 bgcolor: (t) => t.custom.surfaceContainer,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
               }}
             >
-              <Typography
-                component="div"
-                sx={(t) => ({
-                  fontSize: { xs: 'clamp(36px, 8.5vw, 52px)', md: 'clamp(40px, 3.6vw, 56px)' },
-                  fontWeight: 600,
-                  lineHeight: 1.05,
-                  letterSpacing: '-0.025em',
-                  backgroundImage: t.custom.brandGradient,
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  color: 'transparent',
-                })}
-              >
-                {PROFILE.anchorMetric}
-              </Typography>
-              <Typography variant="body2" sx={{ color: 'text.primary' }}>
-                {PROFILE.anchorMetricLabel}
+              <Typography variant="overline" component="span" sx={{ letterSpacing: '0.04em' }}>
+                {PROFILE.role}
               </Typography>
             </Box>
-          </Stack>
+
+            <ArtifactCard artifact={PROFILE.heroArtifact} />
+
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ mt: { xs: 4, md: 5 }, mb: { xs: 4, md: 5 }, fontSize: { xs: 17, md: 19 } }}
+            >
+              {PROFILE.povSubhead}
+            </Typography>
+
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                endIcon={<ArrowForwardIcon />}
+                onClick={() => scrollToId('work')}
+              >
+                See the work
+              </Button>
+              <Button variant="outlined" size="large" onClick={() => scrollToId('contact')}>
+                Get in touch
+              </Button>
+            </Stack>
+          </Box>
         </Fade>
       </Container>
     </Box>

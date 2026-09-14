@@ -6,7 +6,7 @@ export const VIDI = {
   tagline: 'Find belonging in any city.',
   description:
     'A Flutter mobile app that helps newcomers find belonging through personalized, community-driven recommendations. Built on GenAI and Agentic AI to maximize the value of community content for each user.',
-  launch: 'Official UK & QA launch in September 2026',
+  launch: 'Official UK & QA launch in October 2026',
   landingUrl: 'https://vidiapp.co',
   appStoreUrl: 'https://apps.apple.com',
   playStoreUrl: 'https://play.google.com/store',

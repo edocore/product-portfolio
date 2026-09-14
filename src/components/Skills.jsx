@@ -8,6 +8,7 @@ export default function Skills() {
     <Section id="craft">
       <SectionHeader
         eyebrow="Craft"
+        tag="how-i-work"
         title="How I work."
         kicker="The frameworks, tools, and habits I lean on across discovery, prioritization, and shipping."
       />

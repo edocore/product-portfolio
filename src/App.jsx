@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Startup from './components/Startup'
+import Asio from './components/Asio'
 import Skills from './components/Skills'
 import References from './components/References'
 import Faqs from './components/Faqs'
@@ -16,6 +17,7 @@ export default function App() {
       <Hero />
       <Projects />
       <Startup />
+      <Asio />
       <Skills />
       <References />
       <Faqs />

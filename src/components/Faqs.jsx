@@ -19,6 +19,7 @@ export default function Faqs() {
     <Section id="questions">
       <SectionHeader
         eyebrow="Questions"
+        tag="faq"
         title="Things people ask."
         kicker="Short answers to what tends to come up in interviews and intro conversations."
       />

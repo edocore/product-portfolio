@@ -14,6 +14,7 @@ export default function References() {
     >
       <SectionHeader
         eyebrow="Words"
+        tag="testimonials"
         title="What people say."
         kicker="From managers, peers, and collaborators across Amazon and beyond."
       />

@@ -1,6 +1,7 @@
 import { Box, Card, Chip, Stack, Typography } from '@mui/material'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
+import Lightbox from './Lightbox'
 import { CASE_STUDIES } from '../data/caseStudies'
 
 export default function Projects() {
@@ -8,6 +9,7 @@ export default function Projects() {
     <Section id="work">
       <SectionHeader
         eyebrow="Selected work"
+        tag="selected-work"
         title="Products that deliver real impact and are worth solving for."
         kicker="Each one started as a prototype. Each one shipped to real users. The metrics below are the outcomes: the stories behind them are the part I care about."
       />
@@ -41,22 +43,21 @@ export default function Projects() {
                 <Typography variant="body2">{cs.impactDetail}</Typography>
 
                 {cs.image && (
-                  <Box
-                    component="img"
-                    src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}${cs.image.src}`}
-                    alt={cs.image.alt}
-                    loading="lazy"
-                    sx={(t) => ({
-                      mt: 2.5,
-                      display: 'block',
-                      width: '100%',
-                      maxHeight: { xs: 220, md: 240 },
-                      objectFit: 'contain',
-                      objectPosition: 'center',
-                      borderRadius: '16px',
-                      bgcolor: t.custom.surfaceContainerHigh,
-                    })}
-                  />
+                  <Box sx={{ mt: 2.5 }}>
+                    <Lightbox
+                      src={cs.image.src}
+                      alt={cs.image.alt}
+                      thumbSx={(t) => ({
+                        display: 'block',
+                        width: '100%',
+                        maxHeight: { xs: 220, md: 240 },
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                        borderRadius: '16px',
+                        bgcolor: t.custom.surfaceContainerHigh,
+                      })}
+                    />
+                  </Box>
                 )}
               </Box>
 

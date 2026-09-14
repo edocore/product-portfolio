@@ -32,7 +32,7 @@ export default function Startup() {
 
   return (
     <Section id="vidi" sx={{ bgcolor: (t) => t.custom.surfaceContainer }}>
-      <SectionHeader eyebrow="Side project" title={VIDI.tagline} kicker={VIDI.description} />
+      <SectionHeader eyebrow="Side project" tag="vidi" title={VIDI.tagline} kicker={VIDI.description} />
       <Typography variant="body2" sx={{ mb: { xs: 4, md: 6 } }}>
         {VIDI.launch}
       </Typography>

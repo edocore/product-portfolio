@@ -7,7 +7,7 @@ import { PROFILE } from '../data/profile'
 
 export default function Contact() {
   return (
-    <Section id="contact">
+    <Section id="contact" sx={{ bgcolor: (t) => t.custom.surfaceContainer }}>
       <Box
         sx={(t) => ({
           p: { xs: 3, md: 3.5 },

@@ -9,6 +9,7 @@ import {
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { PROFILE } from '../data/profile'
 import { scrollToId } from '../utils/scroll'
+import { useTypewriter } from '../hooks/useTypewriter'
 
 const MONO = '"SF Mono", "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace'
 
@@ -45,6 +46,12 @@ function ArtifactCard({ artifact }) {
         border: `1px solid ${t.custom.outlineVariant}`,
         bgcolor: (th) => (th.palette.mode === 'light' ? '#0E1116' : '#0A0B0D'),
         boxShadow: '0 24px 60px rgba(8, 66, 160, 0.14)',
+        transition: 'transform 300ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease',
+        '&:hover': {
+          transform: 'translateY(-6px)',
+          boxShadow: '0 32px 80px rgba(8, 66, 160, 0.28)',
+        },
+        '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
       })}
     >
       <Stack
@@ -69,8 +76,8 @@ function ArtifactCard({ artifact }) {
           px: { xs: 2.5, md: 3 },
           py: { xs: 2.5, md: 3 },
           fontFamily: MONO,
-          fontSize: { xs: 12.5, md: 13 },
-          lineHeight: 1.7,
+          fontSize: { xs: 13, md: 15 },
+          lineHeight: 1.85,
           color: 'rgba(255,255,255,0.82)',
           whiteSpace: 'pre-wrap',
           wordBreak: 'break-word',
@@ -92,6 +99,8 @@ function ArtifactCard({ artifact }) {
 }
 
 export default function Hero() {
+  const roles = PROFILE.role.split('·').map((s) => s.trim())
+  const typedRole = useTypewriter(roles)
   return (
     <Box
       component="section"
@@ -105,7 +114,7 @@ export default function Hero() {
     >
       <Container>
         <Fade in timeout={500}>
-          <Box sx={{ maxWidth: 640, width: '100%' }}>
+          <Box sx={{ maxWidth: { xs: '100%', md: 760 }, width: '100%' }}>
             <Box
               sx={{
                 mb: { xs: 3, md: 4 },
@@ -118,7 +127,20 @@ export default function Hero() {
               }}
             >
               <Typography variant="overline" component="span" sx={{ letterSpacing: '0.04em' }}>
-                {PROFILE.role}
+                {typedRole}
+                <Box
+                  component="span"
+                  aria-hidden
+                  sx={{
+                    ml: '2px',
+                    color: 'primary.main',
+                    animation: 'heroBlink 1s step-end infinite',
+                    '@keyframes heroBlink': { '50%': { opacity: 0 } },
+                    '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+                  }}
+                >
+                  ▋
+                </Box>
               </Typography>
             </Box>
 

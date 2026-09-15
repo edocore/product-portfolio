@@ -25,7 +25,15 @@ export default function Skills() {
         }}
       >
         {FRAMEWORKS.map((f) => (
-          <Card key={f.name} sx={{ p: { xs: 3, md: 3.5 } }}>
+          <Card
+            key={f.name}
+            sx={{
+              p: { xs: 3, md: 3.5 },
+              transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+              '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+              '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+            }}
+          >
             <Typography variant="h4" component="h3" sx={{ mb: 2 }}>
               {f.name}
             </Typography>

@@ -3,6 +3,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
+import Reveal from './Reveal'
 import Lightbox from './Lightbox'
 import { ASIO } from '../data/asio'
 
@@ -47,7 +48,7 @@ function ScreenTile({ screen }) {
 
 export default function Asio() {
   return (
-    <Section id="asio" sx={{ bgcolor: (t) => t.custom.surfaceContainerHigh }}>
+    <Section id="asio" sx={{ bgcolor: (t) => t.custom.surfaceContainer }}>
       <SectionHeader
         eyebrow="Side project · in development"
         tag="asio"
@@ -78,7 +79,17 @@ export default function Asio() {
 
       <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 3 }} sx={{ mb: 4 }}>
         {ASIO.pillars.map((p, i) => (
-          <Card key={p.id} sx={{ p: { xs: 3, md: 3.5 }, flex: 1, bgcolor: 'background.default' }}>
+          <Reveal key={p.id} delay={i * 100} sx={{ flex: 1, display: 'flex' }}>
+          <Card
+            sx={{
+              p: { xs: 3, md: 3.5 },
+              flex: 1,
+              bgcolor: 'background.default',
+              transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+              '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+              '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+            }}
+          >
             <Box
               sx={(t) => ({
                 width: 36,
@@ -102,6 +113,7 @@ export default function Asio() {
               {p.detail}
             </Typography>
           </Card>
+          </Reveal>
         ))}
       </Stack>
 

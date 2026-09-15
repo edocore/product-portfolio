@@ -6,7 +6,7 @@ import { CASE_STUDIES } from '../data/caseStudies'
 
 export default function Projects() {
   return (
-    <Section id="work">
+    <Section id="work" sx={{ bgcolor: (t) => t.custom.surfaceContainer }}>
       <SectionHeader
         eyebrow="Selected work"
         tag="selected-work"
@@ -16,7 +16,16 @@ export default function Projects() {
 
       <Stack spacing={{ xs: 3, md: 4 }}>
         {CASE_STUDIES.map((cs) => (
-          <Card key={cs.id} sx={{ p: { xs: 3, md: 3.5 } }}>
+          <Card
+            key={cs.id}
+            sx={{
+              p: { xs: 3, md: 3.5 },
+              bgcolor: 'background.default',
+              transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+              '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+              '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+            }}
+          >
             <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3, md: 6 }}>
               <Box sx={{ flex: { md: '0 0 32%' } }}>
                 <Typography

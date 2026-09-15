@@ -2,6 +2,7 @@ import { Box, Button, Card, Link as MuiLink, Stack, Typography } from '@mui/mate
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import Section from './Section'
 import SectionHeader from './SectionHeader'
+import Reveal from './Reveal'
 import { VIDI } from '../data/vidi'
 
 function Screenshot({ src, alt, sx }) {
@@ -31,7 +32,7 @@ export default function Startup() {
   const u = VIDI.universityLaunch
 
   return (
-    <Section id="vidi" sx={{ bgcolor: (t) => t.custom.surfaceContainer }}>
+    <Section id="vidi">
       <SectionHeader eyebrow="Side project" tag="vidi" title={VIDI.tagline} kicker={VIDI.description} />
       <Typography variant="body2" sx={{ mb: { xs: 4, md: 6 } }}>
         {VIDI.launch}
@@ -77,7 +78,16 @@ export default function Startup() {
         <Box sx={{ flex: 1, width: '100%' }}>
           <Stack spacing={2}>
             {VIDI.callouts.map((c, i) => (
-              <Card key={c.id} sx={{ p: { xs: 3, md: 4 }, bgcolor: 'background.default' }}>
+              <Reveal key={c.id} delay={i * 100}>
+              <Card
+                sx={{
+                  p: { xs: 3, md: 4 },
+                  bgcolor: (t) => t.custom.surfaceContainer,
+                  transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+                  '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+                  '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+                }}
+              >
                 <Stack direction="row" spacing={2.5} alignItems="flex-start">
                   <Box
                     sx={(t) => ({
@@ -120,6 +130,7 @@ export default function Startup() {
                   </Box>
                 </Stack>
               </Card>
+              </Reveal>
             ))}
           </Stack>
 
@@ -155,12 +166,12 @@ export default function Startup() {
                 target="_blank"
                 rel="noopener"
                 aria-label="Get it on Google Play"
-                sx={{ display: 'inline-block', height: 48 }}
+                sx={{ display: 'inline-block', height: 48, overflow: 'hidden' }}
               >
                 <img
                   src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                   alt="Get it on Google Play"
-                  style={{ height: 70, display: 'block', margin: '-11px 0' }}
+                  style={{ height: 70, display: 'block', margin: '-11px 0 -11px -11px' }}
                 />
               </Box>
             </Stack>
@@ -169,11 +180,15 @@ export default function Startup() {
       </Stack>
 
       {u && (
+        <Reveal>
         <Card
           sx={{
             mt: { xs: 6, md: 8 },
             p: { xs: 3, md: 5 },
-            bgcolor: 'background.default',
+            bgcolor: (t) => t.custom.surfaceContainer,
+            transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+            '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+            '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
           }}
         >
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 3, md: 6 }}>
@@ -213,6 +228,7 @@ export default function Startup() {
             </Box>
           </Stack>
         </Card>
+        </Reveal>
       )}
     </Section>
   )

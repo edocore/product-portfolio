@@ -122,12 +122,27 @@ const buildTheme = (mode) => {
             fontSize: 15,
             fontWeight: 500,
             letterSpacing: '-0.005em',
+            transition:
+              'transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease, color 200ms ease',
+            '&:hover': { transform: 'translateY(-2px)' },
+            '&:active': { transform: 'translateY(0)' },
+            '& .MuiButton-endIcon, & .MuiButton-startIcon': { transition: 'transform 200ms ease' },
+            '&:hover .MuiButton-endIcon': { transform: 'translateX(3px)' },
+            '&:hover .MuiButton-startIcon': { transform: 'translateX(-2px)' },
+            '@media (prefers-reduced-motion: reduce)': {
+              transition: 'background-color 200ms ease, border-color 200ms ease',
+              '&:hover': { transform: 'none' },
+              '&:hover .MuiButton-endIcon, &:hover .MuiButton-startIcon': { transform: 'none' },
+            },
           },
           sizeLarge: { padding: '14px 28px', fontSize: 16 },
           containedPrimary: {
             backgroundColor: t.primary,
             color: t.onPrimary,
-            '&:hover': { backgroundColor: t.primaryHover },
+            '&:hover': {
+              backgroundColor: t.primaryHover,
+              boxShadow: '0 10px 28px rgba(8, 66, 160, 0.30)',
+            },
           },
           outlined: {
             borderColor: t.outline,
@@ -136,6 +151,7 @@ const buildTheme = (mode) => {
               borderColor: t.primary,
               color: t.primary,
               backgroundColor: 'transparent',
+              boxShadow: '0 8px 22px rgba(8, 66, 160, 0.14)',
             },
           },
           text: {

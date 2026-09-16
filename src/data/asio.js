@@ -38,5 +38,4 @@ export const ASIO = {
       detail: 'TBD: success metrics, target users, and validation plan to be defined.',
     },
   ],
-  tags: ['RAG', 'GenAI', 'Personalization', 'Benchmarking', '0→1'],
 }

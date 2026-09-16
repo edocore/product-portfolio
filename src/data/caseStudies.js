@@ -7,7 +7,7 @@ export const CASE_STUDIES = [
     id: 'delivery-platform',
     company: 'Amazon',
     role: 'Product Manager',
-    title: 'YODA – AI delivery-performance assistant for Sellers',
+    title: 'AI delivery-performance assistant for Sellers',
     impact: '6 → 1',
     impactLabel: 'delivery metrics unified into one assistant',
     impactDetail: 'Internal AM tool across EU → integrating into Seller Central',
@@ -15,7 +15,7 @@ export const CASE_STUDIES = [
     problem:
       'External-fulfilment sellers faced a fragmented delivery experience: dozens of help pages, overlapping automations, and separate dashboards, with no single source of truth connecting a seller\'s metrics, their settings, and the predicted outcome of changing them. Sellers could see a number was bad without knowing why, or what to do about it.',
     solution:
-      'Built YODA, an AI assistant that puts delivery metrics (OTDR, VTR, LSR and the promise / handling-time / transit-time gaps) in one view, diagnoses root causes at carrier and lane level, and produces ranked recommendations – with predicted uplift and time-to-effect – for activating the right automations. Shipped into the Seller Assistant as an MCP server: ~37 candidate stories collapse into a handful of evaluate-in-code domain tools, with live metrics and model-based cohort benchmarks deliberately split by provenance.',
+      'Built an AI assistant that puts delivery metrics (OTDR, VTR, LSR and the promise / handling-time / transit-time gaps) in one view, diagnoses root causes at carrier and lane level, and produces ranked recommendations – with predicted uplift and time-to-effect – for activating the right automations. Shipped on the Seller Assistant (the LLM-powered assistant inside the Amazon Seller Central website) through API, MCP, and Skills: ~37 candidate stories collapse into a handful of evaluate-in-code domain tools, with live metrics and model-based cohort benchmarks deliberately split by provenance.',
     tags: ['AI/ML', 'MCP', 'Seller Assistant', 'Recommendations'],
   },
   {
@@ -45,7 +45,7 @@ export const CASE_STUDIES = [
     problem:
       'EU External Fulfilment ran on a persistent gap: business escalations that could have been self-resolved if the requester had the right knowledge at the right time. Knowledge lived in two disconnected places – live Seller Central content and ad-hoc docs held by domain PMs and SMEs – so people escalated instead of self-serving.',
     solution:
-      'Built MERLIN, a centralized AI entry point that runs a four-step loop per request: route to the right domain → ground (scoped retrieval over that domain\'s curated knowledge) → guide (a deterministic escalation decision tree) → hand off (a pre-populated Slack request on an SLA when a human is genuinely needed). Answers are grounded strictly in curated content rather than a frontier model\'s general knowledge; each domain goes live only after UAT clears ≥90% accuracy, with quality monitored by an LLM-judged evaluation.',
+      'Built MERLIN, a centralized AI entry point that runs a four-step loop per request: route to the right domain → ground (scoped retrieval over that domain\'s curated knowledge) → guide (a deterministic escalation decision tree) → hand off (a pre-populated Slack request on an SLA when a human is genuinely needed). Onboarded an MCP into the tool that opens a live connection to all internal knowledge sources, eliminating the need to scrape and continually re-update content as it changes. Answers are grounded strictly in curated content rather than a frontier model\'s general knowledge; each domain goes live only after UAT clears ≥90% accuracy, with quality monitored by an LLM-judged evaluation.',
     tags: ['GenAI', 'RAG', 'Agentic', 'LLM-eval'],
   },
   {

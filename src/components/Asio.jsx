@@ -1,4 +1,4 @@
-import { Box, Button, Card, Chip, Stack, Typography } from '@mui/material'
+import { Box, Button, Card, Stack, Typography } from '@mui/material'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined'
 import Section from './Section'
@@ -77,67 +77,71 @@ export default function Asio() {
         </Typography>
       </Stack>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 3 }} sx={{ mb: 4 }}>
-        {ASIO.pillars.map((p, i) => (
-          <Reveal key={p.id} delay={i * 100} sx={{ flex: 1, display: 'flex' }}>
-          <Card
-            sx={{
-              p: { xs: 3, md: 3.5 },
-              flex: 1,
-              bgcolor: 'background.default',
-              transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
-              '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
-              '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
-            }}
-          >
-            <Box
-              sx={(t) => ({
-                width: 36,
-                height: 36,
-                borderRadius: '50%',
-                background: t.custom.brandGradient,
-                color: '#fff',
-                display: 'grid',
-                placeItems: 'center',
-                fontSize: 15,
-                fontWeight: 600,
-                mb: 2,
-              })}
+      <Stack
+        direction={{ xs: 'column', md: 'row' }}
+        spacing={{ xs: 4, md: 8 }}
+        alignItems="flex-start"
+      >
+        <Box sx={{ flex: 1, width: '100%' }}>
+          <Stack spacing={2}>
+            {ASIO.pillars.map((p, i) => (
+              <Reveal key={p.id} delay={i * 100}>
+              <Card
+                sx={{
+                  p: { xs: 3, md: 3.5 },
+                  bgcolor: 'background.default',
+                  transition: 'transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease',
+                  '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 18px 48px rgba(8, 66, 160, 0.18)' },
+                  '@media (prefers-reduced-motion: reduce)': { transition: 'none', '&:hover': { transform: 'none' } },
+                }}
+              >
+                <Stack direction="row" spacing={2.5} alignItems="flex-start">
+                  <Box
+                    sx={(t) => ({
+                      width: 36,
+                      height: 36,
+                      borderRadius: '50%',
+                      background: t.custom.brandGradient,
+                      color: '#fff',
+                      display: 'grid',
+                      placeItems: 'center',
+                      flexShrink: 0,
+                      fontSize: 15,
+                      fontWeight: 600,
+                    })}
+                  >
+                    {i + 1}
+                  </Box>
+                  <Box>
+                    <Typography variant="h4" component="div" sx={{ mb: 0.75 }}>
+                      {p.label}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.primary' }}>
+                      {p.detail}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Card>
+              </Reveal>
+            ))}
+          </Stack>
+
+          <Stack spacing={2.5} sx={{ mt: 4 }} alignItems="flex-start">
+            <Button
+              variant="contained"
+              href={ASIO.webAppUrl || '#'}
+              target={ASIO.webAppUrl && ASIO.webAppUrl !== '#' ? '_blank' : undefined}
+              rel="noopener"
+              endIcon={<OpenInNewIcon />}
             >
-              {i + 1}
-            </Box>
-            <Typography variant="h4" component="div" sx={{ mb: 1 }}>
-              {p.label}
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.primary' }}>
-              {p.detail}
-            </Typography>
-          </Card>
-          </Reveal>
-        ))}
-      </Stack>
+              Visit web app
+            </Button>
+          </Stack>
+        </Box>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2, md: 3 }} sx={{ mb: 4 }}>
-        {ASIO.screens.map((s) => (
-          <Box key={s.src} sx={{ flex: 1, width: '100%' }}>
-            <ScreenTile screen={s} />
-          </Box>
-        ))}
-      </Stack>
-
-      <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap alignItems="center">
-        <Button
-          variant="contained"
-          href={ASIO.webAppUrl || '#'}
-          target={ASIO.webAppUrl && ASIO.webAppUrl !== '#' ? '_blank' : undefined}
-          rel="noopener"
-          endIcon={<OpenInNewIcon />}
-        >
-          Visit web app
-        </Button>
-        {ASIO.tags.map((tag) => (
-          <Chip key={tag} label={tag} size="small" />
-        ))}
+        <Box sx={{ flex: { md: '0 0 42%' }, width: '100%' }}>
+          <ScreenTile screen={ASIO.screens[0]} />
+        </Box>
       </Stack>
     </Section>
   )

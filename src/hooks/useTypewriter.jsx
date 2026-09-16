@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-// Cycles through `words`, typing and deleting each — a lightweight, dependency-free
+// Cycles through `words`, typing and deleting each – a lightweight, dependency-free
 // typewriter for the hero role line.
 export function useTypewriter(words, { speed = 70, pause = 1600, enabled = true } = {}) {
   const [i, setI] = useState(0)

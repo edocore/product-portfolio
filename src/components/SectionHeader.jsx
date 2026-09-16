@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView'
 import { useTypewriter } from '../hooks/useTypewriter'
 
 // Section titles type in when scrolled into view, then loop: pause, delete,
-// retype — like the hero role pill. A hidden full-text layer reserves the final
+// retype – like the hero role pill. A hidden full-text layer reserves the final
 // height so there's no layout shift. Honors prefers-reduced-motion.
 export default function SectionHeader({ eyebrow, title, kicker, sx }) {
   const [ref, seen] = useInView()

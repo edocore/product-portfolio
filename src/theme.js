@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-// Material 3 dynamic palette — blue-tinted neutrals.
+// Material 3 dynamic palette – blue-tinted neutrals.
 // Light surface stays just shy of pure white so cards/elevation read.
 const tokens = {
   light: {
